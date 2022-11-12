@@ -68,8 +68,17 @@ form select {
 .flex-col {
   display: flex;
   justify-content: space-around;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
+@media (min-width: 1050px) {
+  .flex-col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
 .btn {
   color: white;
   border: none;
@@ -78,8 +87,8 @@ form select {
   padding: 0.3rem 2rem;
 }
 
-p {
-  line-height: 3rem;
+br {
+  height: 0.2rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

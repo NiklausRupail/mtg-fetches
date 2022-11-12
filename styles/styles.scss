@@ -68,6 +68,15 @@ form {
 .flex-col{
   display:flex;
   justify-content: space-around;
+  flex-direction: column-reverse;
+  align-items: center
+}
+@media (min-width:1050px) {
+  .flex-col{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 }
 .btn {
   color: white;
