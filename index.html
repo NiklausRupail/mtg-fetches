@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+
+<body>
+    <h1 id="head">Chuj</h1>
+    <form id="cards-form">
+        
+        <label for='search-text'>Enter Search Text</label>
+        <input type="text" name="searchText" id="search-text" />
+        
+        <label for="search-type">Enter Search Type</label>
+        <select name="searchType" id="search-type"></select>
+        <input type="submit" class="btn" value="Search" />
+    </form>
+    <div id="divider"></div>
+    
+    <div class="flex-col">
+        <p id="card-data"></p>
+        <div id="card-placeholder"><img id="cardimg"></div>
+    </div>
+
+    <script defer type="module" src="./scripts/main.js"></script>
+    <script defer type="module" src="./scripts/actions.js"></script>
+    <script defer type="module" src="./scripts/fetches.js"></script>
+</body>
+
+</html>
