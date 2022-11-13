@@ -8,7 +8,7 @@ const startScript = async () => {
 	head.innerHTML = "Card search";
 
 	const typeSelect = document.getElementById("search-type");
-    const typesToChoose = ["fuzzy", "exact"];
+    const typesToChoose = ["fuzzy", "exact", "random card"];
     typeSelect.defaultValue = typesToChoose[0];
 
     for (const type of typesToChoose) {

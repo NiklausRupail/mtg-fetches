@@ -1,28 +1,26 @@
 "use strict";
 
-export const getImage = async (searchType, searchText) => { 
-    console.log(searchText)
-  
-    console.log(await fetch(`https://api.scryfall.com/cards/named?fuzzy=${searchText}`).then((response) => response.json())); 
-    return await fetch(`https://api.scryfall.com/cards/named?fuzzy=${searchText}`)
-        .then((response) => response.json())
-        .then((data) => data.image_uris.normal);
 
-}
 export const getData = async (searchType, searchText) => { 
     
-    console.log(searchText)
-    console.log(await fetch(`https://api.scryfall.com/cards/named?fuzzy=${searchText}`).then((response) => response.json()));
+    //console.log(searchText)
+    
+    const request = 
+    (searchType != "random card") 
+    ? `https://api.scryfall.com/cards/named?${searchType}=${searchText}`
+    : `https://api.scryfall.com/cards/random`;
+    
+    //console.log(request);
 
-    return await fetch(`https://api.scryfall.com/cards/named?fuzzy=${searchText}`)
+    console.log(await fetch(request).then((response) => response.json()));
+    
+    return await fetch(request)
         .then((response) => response.json())
         .then((data) => ({
             name: data.name,
             price: data.prices.usd,
             rarity: data.rarity,
-            tcgplayer: data.purchase_uris.tcgplayer 
+            tcgplayer: data.purchase_uris.tcgplayer,
+            src_png: data.image_uris.normal 
         }));
     }
-export const getAutocomplete = async(text) => {
-    return 0;
-}
