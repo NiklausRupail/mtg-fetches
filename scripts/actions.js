@@ -36,7 +36,7 @@ export const displayCards = async (event, form) => {
         
         const img = document.getElementById("cardimg")
         img.src = src_png;
-        img.width = screen.width < 1050 ? 300 : 500;
+        img.width = screen.width < 1050 ? 300 : 400;
 
         //Setting info in card-data <p>
         const dataParagraph = document.getElementById('card-data');
