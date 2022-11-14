@@ -1,44 +1,45 @@
+/*Change it later if it's fucked*/
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+:root {
+  font-size: 22px;
+}
+
 body {
-  box-sizing: border-box;
-  padding: 25px 12px;
   height: 100vh;
   width: 100%;
+  background: #c9af96;
+  font-family: "Lato", sans-serif;
 }
 
 h1 {
+  margin-top: 0.5rem;
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 8px;
   text-align: center;
 }
 
-h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 16px;
+img {
+  border-radius: 15px;
 }
 
-h3 {
-  font-size: 36px;
-  margin: 25px 0 15px;
+a:-webkit-any-link {
+  text-decoration: none;
+  color: #a449af;
+  transition: all 0.4s ease-in-out;
 }
 
-p {
-  font-size: 24px;
-  margin-bottom: 5px;
+a:hover {
+  transition: all 0.4s ease-in-out;
+  color: white;
 }
 
 form {
-  margin: 50px 0;
+  margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 10px;
-  font-size: 22px;
-}
-form label {
-  margin-bottom: 8px;
+  gap: 1rem;
 }
 form input,
 form select {
@@ -50,38 +51,29 @@ form select {
   border: solid 1px #303030;
 }
 
-#random-number-btn {
-  margin-bottom: 15px;
-}
-
-#divider {
-  margin: 75px 0 25px;
-  width: 100%;
-  text-align: center;
-}
-
-#card-placeholder {
+div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .flex-col {
-  display: flex;
-  justify-content: space-around;
   flex-direction: column-reverse;
-  align-items: center;
+  justify-content: space-around;
+  margin-top: 5rem;
 }
 
 #card-data {
+  margin-top: 2rem;
   font-size: 20px;
+  line-height: 1.7rem;
 }
 
 @media (min-width: 1050px) {
   .flex-col {
-    display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 0;
   }
   .flex-col #card-data {
     font-size: 23px;
@@ -93,6 +85,26 @@ form select {
   background: #303030;
   border-radius: 999px;
   padding: 0.3rem 2rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:hover {
+  transform: translate(0, -4px);
+  transition: all 0.1s ease-in-out;
+}
+
+card-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  transition: all 1s;
 }
 
 br {
