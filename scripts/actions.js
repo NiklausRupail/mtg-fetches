@@ -33,10 +33,17 @@ export const displayCards = async (event, form) => {
             return;
         };
         const { name, price, rarity, tcgplayer, src_png} = cardInfo;
-        
-        const img = document.getElementById("cardimg")
-        img.src = src_png;
-        img.width = screen.width < 1050 ? 300 : 400;
+        if (name === "Snapcaster Mage") {
+            const img = document.getElementById("cardimg")
+            img.src = "https://media.tenor.com/h0m34HCx55kAAAAC/thealexera-soyjak.gif";
+            img.style = "border-radius: 20px";
+            img.width = 300;
+            
+        }  else {
+            const img = document.getElementById("cardimg")
+            img.src = src_png;
+            img.width = 300;
+        }
 
         //Setting info in card-data <p>
         const dataParagraph = document.getElementById('card-data');
@@ -52,14 +59,15 @@ export const displayCards = async (event, form) => {
         dataParagraph.appendChild(document.createElement("br"));
         
         //Rarity
-        dataParagraph.innerHTML += `Rarity: ${rarity}`;
+        const rarityCapitalized = rarity[0].toUpperCase() + rarity.substr(1);
+        dataParagraph.innerHTML += `Rarity: ${rarityCapitalized}`;
         dataParagraph.appendChild(document.createElement("br"));
         
         //Link
         const link = document.createElement("a")
         link.href = tcgplayer;
         link.setAttribute('target', '_blank');
-        link.innerHTML = "TCGplayer link to buy";
+        link.innerHTML = `Click to Buy (${price}$)`;
         dataParagraph.appendChild(link);
         dataParagraph.appendChild(document.createElement("br"));
         
