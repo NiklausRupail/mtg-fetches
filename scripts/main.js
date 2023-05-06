@@ -2,12 +2,12 @@
 
 import { displayCards } from "./actions.js"
 
-const startScript = async () => {
+const init = async () => {
     
 	const head = document.getElementById("head");
 	head.innerHTML = "Card search";
 
-	const typeSelect = document.getElementById("search-type");
+	const typeSelect = document.getElementById("searchType");
     const typesToChoose = ["fuzzy", "exact", "random card"];
     typeSelect.defaultValue = typesToChoose[0];
 
@@ -19,8 +19,8 @@ const startScript = async () => {
 		typeSelect.appendChild(option);
 }
 
-	const cardsForm = document.getElementById('cards-form');
+	const cardsForm = document.getElementById('cardsForm');
     cardsForm.addEventListener("submit", (event) => displayCards(event, cardsForm));
 }
 
-startScript();
+init();

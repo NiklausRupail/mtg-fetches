@@ -9,7 +9,7 @@ export const displayCards = async (event, form) => {
 
     const formData = new FormData(form);
     const data = {};
-
+    const br = document.createElement("br");
     //console.log([...formData.entries()]);
 
     for (const [key, value] of formData.entries()) {
@@ -25,51 +25,50 @@ export const displayCards = async (event, form) => {
     //console.log(str);
     if (str !== "") {
         const cardInfo = await getData(searchType, str);
-        
+        const img = document.getElementById("cardImg")
+
         if (cardInfo === undefined) {
+            //let cardSearchError = document.getElementById("cardSearchError");
             const dataParagraph = document.getElementById('card-data');
             dataParagraph.innerHTML = "";
-            document.getElementById("cardimg").src = "";
+            img.src = "";
             return;
         };
         const { name, price, rarity, tcgplayer, src_png} = cardInfo;
         if (name === "Snapcaster Mage") {
-            const img = document.getElementById("cardimg")
             img.src = "https://media.tenor.com/h0m34HCx55kAAAAC/thealexera-soyjak.gif";
             img.style = "border-radius: 20px";
             img.width = 300;
             
         }  else {
-            const img = document.getElementById("cardimg")
             img.src = src_png;
             img.width = 300;
         }
 
         //Setting info in card-data <p>
         const dataParagraph = document.getElementById('card-data');
-
+        document.getElementById("cardWrapper").style.display = "flex";
+        let priceTag = document.getElementById("priceTag");
+        let buyingLink = document.getElementById("buyingLink");
+        let cardName = document.getElementById("cardName");
+        let rarityName = document.getElementById("rarityName");
         //Name
-        dataParagraph.innerHTML = `Name: ${name}`;
-        dataParagraph.appendChild(document.createElement("br"));
+        cardName.innerHTML= name;
         
         //Price
-        dataParagraph.innerHTML += (price == null) 
+        priceTag.innerHTML = (price == null) 
         ? `Price: NaN`
         : `Price: ${price}\$`;
-        dataParagraph.appendChild(document.createElement("br"));
+        dataParagraph.appendChild(br);
         
         //Rarity
         const rarityCapitalized = rarity[0].toUpperCase() + rarity.substr(1);
-        dataParagraph.innerHTML += `Rarity: ${rarityCapitalized}`;
-        dataParagraph.appendChild(document.createElement("br"));
+        rarityName.innerText = `Rarity: ${rarityCapitalized}`;
         
         //Link
-        const link = document.createElement("a")
-        link.href = tcgplayer;
-        link.setAttribute('target', '_blank');
-        link.innerHTML = `Click to Buy (${price}$)`;
-        dataParagraph.appendChild(link);
-        dataParagraph.appendChild(document.createElement("br"));
+        buyingLink.href = tcgplayer;
+        buyingLink.setAttribute('target', '_blank');
+        buyingLink.innerHTML = `Click to Buy`;
         
         //debugging
         //dataParagraph.innerHTML += "Screen Width: " + screen.width;
