@@ -1,14 +1,16 @@
 /*Change it later if it's fucked*/
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 :root {
   font-size: 22px;
 }
 
-body {
+#priceTag {
+  margin: 0 !important;
+}
+
+html {
   height: 100vh;
   width: 100%;
-  background: #c9af96;
-  font-family: "Lato", sans-serif;
+  background: #fff;
 }
 
 h1 {
@@ -30,31 +32,19 @@ a:-webkit-any-link {
 
 a:hover {
   transition: all 0.4s ease-in-out;
-  color: white;
+  color: #000;
 }
 
-form {
-  margin-top: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 1rem;
-}
-form input,
-form select {
-  width: 220px;
-  margin-bottom: 25px;
-  font-size: 20px;
-  text-align: center;
-  border-radius: 99px;
-  border: solid 1px #303030;
-}
-
-div {
+.card-body {
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.card {
+  margin-top: 5rem;
+  max-width: 20rem;
+  display: flex;
+  justify-content: center;
 }
 
 .flex-col {
@@ -89,22 +79,8 @@ div {
   transition: all 0.1s ease-in-out;
 }
 
-.btn:hover {
-  transform: translate(0, -4px);
+.btn {
   transition: all 0.1s ease-in-out;
-}
-
-card-content {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: 100% 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  backface-visibility: hidden;
-  transition: all 1s;
 }
 
 br {

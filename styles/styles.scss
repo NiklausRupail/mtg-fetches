@@ -1,124 +1,95 @@
-$back-col: #c9af96;
+$back-col: #fff;
 /*Change it later if it's fucked*/
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 :root {
   font-size: 22px;
 }
-body {
-    height: 100vh;
-    width: 100%;
-    background: $back-col;
-    font-family: 'Lato', sans-serif;
 
+#priceTag {
+  margin: 0 !important;
+}
+
+html {
+  height: 100vh;
+  width: 100%;
+  background: $back-col;
 }
 
 h1 {
-    margin-top: 0.50rem;
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
+  margin-top: 0.50rem;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
 }
+
 img {
   border-radius: 15px;
 }
+
 a:-webkit-any-link {
   text-decoration: none;
   color: #a449af;
   transition: all 0.4s ease-in-out;
 }
+
 a:hover {
-
   transition: all 0.4s ease-in-out;
-  color: white;
-}
-form {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
-
-    label {
-    }
-
-    input,
-    select {
-        width: 220px;
-        margin-bottom: 25px;
-        font-size: 20px;
-        text-align: center;
-        border-radius: 99px;
-        border: solid 1px #303030;
-    }
+  color: #000;
 }
 
-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-body {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  margin-top: 5rem;
+  max-width: 20rem;
+  display: flex;
+  justify-content: center;
 }
 
 .flex-col {
-    flex-direction: column-reverse;
-    justify-content: space-around;
-    margin-top: 5rem;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  margin-top: 5rem;
 }
 
 #card-data {
-    margin-top: 2rem;
-    font-size: 20px;
-    line-height: 1.7rem;
+  margin-top: 2rem;
+  font-size: 20px;
+  line-height: 1.7rem;
 }
 
 @media (min-width:1050px) {
-    .flex-col {
-        flex-direction: row;
-        justify-content: space-around;
-        margin: 0;
-        #cardimg {
+  .flex-col {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
 
-        }
+    #card-data {
+      font-size: 23px;
 
-        #card-data {
-            font-size: 23px;
-
-        }
     }
+  }
 }
 
 .btn {
-    color: white;
-    border: none;
-    background: #303030;
-    border-radius: 999px;
-    padding: 0.3rem 2rem;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-}
-.btn:hover {
-  transform: translate(0,-4px);
+  color: white;
+  border: none;
+  background: #303030;
+  border-radius: 999px;
+  padding: 0.3rem 2rem;
+  cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
-card-content{
-  width:100%;
-  height:100%;
-  position:absolute;
-  top:0;
-  left:0;
-  background-size:100% 100%;
-  background-position:center center;
-  background-repeat:no-repeat;
-  backface-visibility: hidden;
-  transition:all 1s;
+
+.btn {
+
+  transition: all 0.1s ease-in-out;
 }
-
-
-
 
 br {
-    height: 0.2rem;
+  height: 0.2rem;
 }
+
 /*TODO: clean this file up and actually style the page */
-
-
