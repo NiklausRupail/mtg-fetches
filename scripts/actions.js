@@ -9,7 +9,6 @@ export const displayCards = async (event, form) => {
 
     const formData = new FormData(form);
     const data = {};
-    const br = document.createElement("br");
     //console.log([...formData.entries()]);
 
     for (const [key, value] of formData.entries()) {
@@ -22,19 +21,17 @@ export const displayCards = async (event, form) => {
     for (let i = 0; i < searchText.length; i++) {
         if (searchText[i] === " ") { str += ['+']; } else str += searchText[i]
     }
-    //console.log(str);
     if (str !== "") {
         const cardInfo = await getData(searchType, str);
         const img = document.getElementById("cardImg")
 
         if (cardInfo === undefined) {
-            //let cardSearchError = document.getElementById("cardSearchError");
             const dataParagraph = document.getElementById('card-data');
             dataParagraph.innerHTML = "";
             img.src = "";
             return;
         };
-        const { name, price, rarity, tcgplayer, src_png} = cardInfo;
+        const { name, price, rarity, tcgplayer, src_png, set, type} = cardInfo;
         if (name === "Snapcaster Mage") {
             img.src = "https://media.tenor.com/h0m34HCx55kAAAAC/thealexera-soyjak.gif";
             img.style = "border-radius: 20px";
@@ -45,13 +42,17 @@ export const displayCards = async (event, form) => {
             img.width = 300;
         }
 
-        //Setting info in card-data <p>
+        //Setting info of the card
         const dataParagraph = document.getElementById('card-data');
-        document.getElementById("cardWrapper").style.display = "flex";
+        document.getElementById("cardWrapper").style.display = "none";
+        
         let priceTag = document.getElementById("priceTag");
         let buyingLink = document.getElementById("buyingLink");
         let cardName = document.getElementById("cardName");
         let rarityName = document.getElementById("rarityName");
+        let setName = document.getElementById("setName");
+        let typeName = document.getElementById("typeName");
+        
         //Name
         cardName.innerHTML= name;
         
@@ -59,19 +60,22 @@ export const displayCards = async (event, form) => {
         priceTag.innerHTML = (price == null) 
         ? `Price: NaN`
         : `Price: ${price}\$`;
-        dataParagraph.appendChild(br);
         
         //Rarity
         const rarityCapitalized = rarity[0].toUpperCase() + rarity.substr(1);
         rarityName.innerText = `Rarity: ${rarityCapitalized}`;
         
+        //Type name
+        typeName.innerText = `Type: ${type}`;
+        
+        //Set name
+        setName.innerText = `Set: ${set}`;
+
         //Link
         buyingLink.href = tcgplayer;
         buyingLink.setAttribute('target', '_blank');
         buyingLink.innerHTML = `Click to Buy`;
-        
-        //debugging
-        //dataParagraph.innerHTML += "Screen Width: " + screen.width;
 
+        document.getElementById("cardWrapper").style.display = "flex";
     }
 }

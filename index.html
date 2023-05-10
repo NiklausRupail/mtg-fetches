@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <link rel="icon" type="img" href="./img/favicon.ico">
+    <link rel="icon" type="img" href="https://deckmaster.info/images/sets/I2P_C.png">
     <script defer type="module" src="./scripts/main.js"></script>
     <script defer type="module" src="./scripts/actions.js"></script>
     <script defer type="module" src="./scripts/fetches.js"></script>
@@ -32,7 +32,6 @@
                     <select class="form-select" id="searchType" name="searchType">
                     </select>
                     <label for="searchType">Search Type</label>
-
                 </div>
 
             </div>
@@ -40,7 +39,6 @@
                 <input type="submit" class="btn btn-primary btn-lg" value="Search" />
             </div>
         </form>
-        <div id="divider"></div>
 
         <div class="card position-static justify-content-center" style="display: none; margin: 2rem auto;" id="cardWrapper">
             <img src="" class="card-img-top" style="width: 20rem;" id="cardImg"
@@ -50,6 +48,8 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item" id="rarityName"></li>
+                <li class="list-group-item" id="typeName"></li>
+                <li class="list-group-item" id="setName"></li>
             </ul>
             <div class="card-body d-flex justify-content-between gap-3">
                 <a href="#" id="buyingLink" class="card-link"></a>
